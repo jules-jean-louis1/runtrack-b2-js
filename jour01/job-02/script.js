@@ -1,0 +1,4 @@
+
+function myCountChar(haystack, needle) {
+
+}
