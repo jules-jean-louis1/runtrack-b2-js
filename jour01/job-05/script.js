@@ -1,12 +1,17 @@
-function mySquareArray(array) {
-let length_array = 0;
-    while (array[length_array] !== undefined) {
-        length_array++;
+function myPrimeList(limit) {
+    let prime = [];
+    let i = 2;
+    let prime_length = 0;
+
+    while (prime[prime_length] !== undefined) {
+        prime_length++;
     }
-    for (let i = 0; i < length_array; i++) {
-        let num = +array[i];
-        array[i] = num * num;
+
+    while (prime_length < limit) {
+        if (isPrime(i)) {
+            prime.push(i);
+        }
+        i++;
     }
-    return array;
+    return prime;
 }
-console.log(mySquareArray([3, 8, 4, 2, 5])); // Cela affichera [9, 64, 16, 4, 25]
