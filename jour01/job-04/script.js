@@ -12,7 +12,6 @@ function myIsInString(haystack, needle) {
     while (needle[length_needle] != undefined) {
         length_needle++;
     }
-
     for (let i = 0; i < length_haystack; i++) {
         let match = true;
         for (let j = 0; j < length_needle; j++) {
@@ -28,4 +27,4 @@ function myIsInString(haystack, needle) {
     }
     return found;
 }
-console.log(myIsInString("hello world", "rld")); // Cela affichera true
+console.log(myIsInString("hello world", "rppld")); // Cela affichera true
