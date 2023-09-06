@@ -1,30 +1,13 @@
-/*Faites une fonction myIsInString(). Cette fonction devra déterminer si une chaîne de caractère se trouve dans une autre
-en retournant un booléen.*/
-
-function myIsInString(haystack, needle) {
-    let found = false;
-    let length_haystack = 0;
-    let length_needle = 0;
-
-    while (haystack[length_haystack] != undefined) {
-        length_haystack++;
+function myArraySum(array) {
+    let sum = 0;
+    let length_array = 0;
+    while (array[length_array] !== undefined) {
+        length_array++;
     }
-    while (needle[length_needle] != undefined) {
-        length_needle++;
+    for (let i = 0; i < length_array; i++) {
+        let num = +array[i];
+        sum += num;
     }
-    for (let i = 0; i < length_haystack; i++) {
-        let match = true;
-        for (let j = 0; j < length_needle; j++) {
-            if (haystack[i + j] != needle[j]) {
-                match = false;
-                break;
-            }
-            if (match) {
-                found = true;
-                break;
-            }
-        }
-    }
-    return found;
+    return sum;
 }
-console.log(myIsInString("hello world", "rppld")); // Cela affichera true
+console.log(myArraySum([4, 24, 52, 14, 32, 56])); // Cela affichera 182

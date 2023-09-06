@@ -7,7 +7,7 @@ function myCountChar(haystack, needle) {
         length_haystack++;
     }
     for (let i = 0; i < length_haystack; i++) {
-        if (haystack[i] == needle) {
+        if (haystack[i] === needle) {
             count++;
         }
     }
