@@ -5,6 +5,7 @@ const gender = document.getElementById("student-gender");
 const grade = document.getElementById("student-grade");
 const btnSubmit = document.getElementById("btnSubmit");
 const FormRequest = document.getElementById("form-add-student");
+const resultStudent = document.getElementById("result-add-student");
 
 async function myRegisterStudent() {
     try {
@@ -13,9 +14,11 @@ async function myRegisterStudent() {
             body: new FormData(FormRequest),})
         const data = await response.json();
         if (data.status === true) {
-            alert("Student added successfully");
+            resultStudent.innerHTML = `<h3>Student added</h3>`;
+            resultStudent.style.color = "green";
         } else {
-            alert("Error: " + data.message);
+            resultStudent.innerHTML = `<h3>Error: ${data.message}</h3>`;
+            resultStudent.style.color = "red";
         }
     }
     catch (err) {

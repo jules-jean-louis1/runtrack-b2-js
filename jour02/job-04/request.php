@@ -19,12 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $birthdate = DateTime::createFromFormat('Y-m-d', $dateStr);
     $gender = $_POST['student-gender'];
     $grade = $_POST['student-grade'];
-    if (!empty($email) || !empty($fullname) || !empty($birthdate) || !empty($gender) || !empty($grader)) {
+
+    if (empty($email) || empty($fullname) || empty($birthdate)) {
+        header('Content-Type: application/json');
+        echo json_encode(['status' => false, 'message' => 'Les champs email, fullname et birthdate sont obligatoires']);
+    } else {
         my_insert_student($email, $fullname, $gender, $grade, $birthdate);
         header('Content-Type: application/json');
         echo json_encode(['status' => true, 'message' => 'Etudiant ajouté']);
-    } else {
-        header('Content-Type: application/json');
-        echo json_encode(['status' => false, 'message' => 'Erreur lors de l\'ajout de l\'étudiant']);
     }
 }
