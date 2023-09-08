@@ -6,17 +6,23 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script defer type="module" src="script.js"></script>
     <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
     <title>Tic Tac Toe Game</title>
 </head>
 <body>
     <main>
-        <p id="current-player">Joueur actuel : X</p>
-        <p id="message"></p>
-        <p id="turn">Tour : 0</p>
-        <div>
-            <button id="play">Jouer</button>
+        <h1>Tic Tac Toe Game</h1>
+        <div id="container-game">
+            <div id="container_info" class="flex justify-around">
+                <p id="current-player">Joueur actuel : X</p>
+                <p id="message"></p>
+                <p id="turn">Tour : 0</p>
+            </div>
+            <div>
+                <button id="play" class="w-full border-2 rounded py-2 my-2 font-bold">Jouer</button>
+            </div>
+            <div id="board"></div>
         </div>
-        <div id="board"></div>
     </main>
 </body>
 </html>

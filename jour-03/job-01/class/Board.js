@@ -74,18 +74,14 @@ class Board {
 
         return false;
     }
-
     isFull() {
-        for (let row = 0; row < 3; row++) {
-            for (let col = 0; col < 3; col++) {
-                if (this.grid[row][col] === "-") {
-                    return false;
-                }
+        for (let row = 0; row < 3; row++){
+            if (this.grid[row].includes('-')){
+                return false;
             }
         }
         return true;
     }
-
     resetBoard() {
         this.initializeBoard();
         this.displayBoard();
