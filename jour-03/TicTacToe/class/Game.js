@@ -12,6 +12,7 @@ class Game {
         this.currentTurn = this.player1;
         this.registerMove();
     }
+
     makeMove(row, col) {
         if (this.board.placeMove(row, col, this.currentTurn.symbol)) {
             this.board.displayBoard();
@@ -21,6 +22,44 @@ class Game {
                 this.switchTurn();
             }
         }
+    }
+
+    registerMove() {
+        const buttons = document.querySelectorAll(".case");
+        buttons.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                const [row, col] = btn.id.split("-").slice(1).map(Number);
+                this.makeMove(row, col);
+            });
+        });
+    }
+
+    switchTurn() {
+        this.currentTurn = this.currentTurn === this.player1 ? this.player2 : this.player1;
+    }
+
+    checkGameOver() {
+        if (this.board.checkVictory()) {
+            return true;
+        }
+        if (this.board.isFull()) {
+            return true;
+        }
+        return false;
+    }
+
+    announceWinner() {
+        if (this.board.hasWinner) {
+            alert(`Le joueur ${this.currentTurn.symbol} a gagné !`);
+        } else {
+            alert("Match nul !");
+        }
+    }
+
+    resetGame() {
+        this.board.resetBoard();
+        this.currentTurn = this.player1;
+        this.registerMove();
     }
 }
 
