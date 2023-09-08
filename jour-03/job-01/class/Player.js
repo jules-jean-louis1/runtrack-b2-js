@@ -6,3 +6,4 @@ class Player
         this.isCurrentPlayer = isCurrentPlayer;
     }
 }
+export default Player;
